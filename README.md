@@ -21,3 +21,4 @@ Abra a URL no Safari → Compartilhar → Adicionar à Tela de Início → Adici
 
 ## Armazenamento
 Os ajustes ficam localmente no navegador de cada aparelho. Não existe sincronização automática. Exporte o backup em um aparelho e importe no outro para transferir suas alterações.
+
