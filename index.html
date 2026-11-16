@@ -2,21 +2,27 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#172554"><meta name="description" content="Calendário pessoal da escala 14x14.">
+<meta name="theme-color" content="#172554"><meta name="description" content="Calendário pessoal da sua escala de trabalho.">
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon-192.png">
 <link rel="stylesheet" href="style.css"><title>Minha Escala</title>
 </head>
 <body>
-<header class="top"><div><p class="eyebrow">CALENDÁRIO PESSOAL</p><h1>Minha Escala</h1><p class="sub">Ciclo 14 dias de serviço · 14 dias de folga</p></div>
+<header class="top"><div><p class="eyebrow">CALENDÁRIO PESSOAL</p><h1>Minha Escala</h1><p class="sub" id="cycleSubtitle">Ciclo 14 dias de serviço · 14 dias de folga</p></div>
 <div class="year-controls"><button id="prevYear" aria-label="Ano anterior">‹</button><strong id="yearLabel"></strong><button id="nextYear" aria-label="Próximo ano">›</button></div></header>
 <main>
 <section class="legend"><span><i class="dot service"></i> Serviço</span><span><i class="dot off"></i> Folga</span><span><i class="dot custom"></i> Alteração manual</span></section>
+<section class="panel settings-panel"><h2>Configurações da escala</h2><p class="muted">Informe a data do primeiro dia de serviço e a duração de cada período. A configuração fica salva neste aparelho.</p>
+<div class="settings-grid">
+<div><label for="baseDate">Data do primeiro dia de serviço</label><input id="baseDate" type="date"></div>
+<div><label for="workDays">Dias de serviço</label><input id="workDays" type="number" min="1" max="365" step="1" inputmode="numeric"></div>
+<div><label for="offDays">Dias de folga</label><input id="offDays" type="number" min="1" max="365" step="1" inputmode="numeric"></div>
+</div><div class="actions"><button id="saveSettings" class="primary">Salvar configuração</button><button id="restoreSettings" class="secondary">Restaurar padrão 14x14</button></div><p id="settingsStatus" class="status" role="status"></p><p id="scaleSummary" class="scale-summary"></p></section>
 <section id="calendar" class="calendar" aria-live="polite"></section>
 <section class="panel"><h2 id="selectedTitle">Selecione uma data</h2><p id="selectedInfo" class="muted">Toque em um dia do calendário para consultar ou alterar.</p>
 <div id="editArea" hidden><label for="dayType">Classificação desta data</label><select id="dayType"><option value="service">Serviço</option><option value="off">Folga</option><option value="other">Outro compromisso</option></select>
 <label for="note">Observação (opcional)</label><textarea id="note" rows="2" placeholder="Ex.: troca de escala, consulta, viagem..."></textarea>
 <div class="actions"><button id="saveDay" class="primary">Salvar alteração</button><button id="resetDay" class="secondary">Restaurar ciclo original</button></div></div></section>
-<section class="panel"><h2>Backup dos seus dados</h2><p class="muted">As alterações ficam salvas neste aparelho. Use o backup para transferi-las para outro dispositivo.</p>
+<section class="panel"><h2>Backup dos seus dados</h2><p class="muted">O backup inclui suas configurações e alterações manuais. Use-o para transferir os dados para outro dispositivo.</p>
 <div class="actions"><button id="exportBackup" class="secondary">Exportar backup</button><label class="file-button secondary">Importar backup<input id="importBackup" type="file" accept="application/json,.json"></label><button id="resetAll" class="danger">Apagar todas as alterações</button></div><p id="backupStatus" class="status" role="status"></p></section>
-</main><footer>Data-base do ciclo: <strong>15/10/2026</strong> · Primeiro dia de serviço</footer>
+</main><footer id="footerSummary">Data-base do ciclo: 15/10/2026 · Primeiro dia de serviço</footer>
 <script src="app.js"></script></body></html>
