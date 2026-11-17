@@ -172,5 +172,21 @@
 <footer id="footerSummary">Data-base do ciclo: 15/10/2026 · Primeiro dia de serviço</footer>
 
 <script src="app.js"></script>
+  
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "a67b099f-5489-46f0-9c8a-dde6805861cf",
+      serviceWorkerPath: "/minha-escala/sw.js",
+      serviceWorkerParam: {
+        scope: "/minha-escala/"
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
